@@ -1,4 +1,4 @@
-# sms-sender  :envelope: :rocket:
+# sms-sender :envelope: :rocket:
 
 [![travis build](https://img.shields.io/travis/FrankAst/sms-sender.svg)](https://travis-ci.org/FrankAst/sms-sender)
 [![codecov coverage](https://img.shields.io/codecov/c/github/FrankAst/sms-sender.svg)](https://codecov.io/github/FrankAst/sms-sender)
@@ -8,11 +8,9 @@
 [![Greenkeeper badge](https://badges.greenkeeper.io/FrankAst/sms-sender.svg)](https://greenkeeper.io/)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
-
 This is a wrapper for [AWS.SNS](https://aws.amazon.com/sns/) and [SMSC API](https://smsc.ru).
 
 ## Installation
-
 
 ```bash
 yarn add @frankast/sms-sender
@@ -20,10 +18,10 @@ yarn add @frankast/sms-sender
 
 ## API
 
-There are two providers `Smsc.js` (default) and `Sns.js`. If you want to use `Sns.js` do not forget to add `aws-sdk` optional dependency.
-
+There are three providers `Smsc.js` (default), `Sns.js`, `Mobizon`. If you want to use `Sns.js` do not forget to add `aws-sdk` optional dependency.
 
 #### Sending SMS
+
 To send an SMS you have to create an instance of provider and call `sendSms()` method:
 
 ```js
@@ -42,6 +40,7 @@ const response = await smsc.sendSms('phone_number', 'message');
 ```
 
 #### Get delivery status of SMS
+
 To check the delivery status of SMS call `getStatus()` method:
 
 ```js
@@ -72,6 +71,7 @@ const response = await smsc.getStatus('40-77718637484'); // takes messageId (id-
 P.S. You can get status codes [here](https://github.com/FrankAst/sms-sender/blob/3946a34f0d68369914e1ac6c180cc2a5948b718d/src/transporters/Smsc.js#L49) or in [SMSC docs](https://smsc.kz/api/http/status_messages/statuses/#menu).
 
 #### Get cost of SMS
+
 To get a cost of SMS call `getCost()` method:
 
 ```js
@@ -82,6 +82,7 @@ const response = await smsc.getCost('phone_number','message');
 ```
 
 #### Get current balance
+
 To get the current balance on your account call `getBalance()` method:
 
 ```js
@@ -92,12 +93,13 @@ To get the current balance on your account call `getBalance()` method:
 ```
 
 ## Examples
+
 Here is an example of usage with RegExp:
 
 ```js
 // @flow
 
-import { Smsc, Sns } from '@frankast/sms-sender';
+import { Smsc, Sns, Mobizon } from '@frankast/sms-sender';
 
 // don't forget to put your credentials
 const providers = {
@@ -110,6 +112,9 @@ const providers = {
     region: '',
     accessKeyId: '',
     secretAccessKey: '',
+  }),
+  mobizon: new Mobizon({
+    apiKey: '',
   }),
 };
 
@@ -128,13 +133,12 @@ async function send(phone: string, message: string): Promise<Object> {
 send('+77081113344', 'hello world').then(res => {
   console.log(res);
 });
-
-
 ```
 
 Other examples are available in [./examples](https://github.com/FrankAst/sms-sender/tree/master/examples).
 
 ## Contribution
+
 Feel free to submit pull request to us. Also, be sure all tests has passed otherwise pull request won't be accepted.
 
 ## License
