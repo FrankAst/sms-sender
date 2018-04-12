@@ -81,6 +81,8 @@ const response = await smsc.getCost('phone_number','message');
 // response = { cost: '0', rawResponse: { cnt: 1, cost: '25' } };
 ```
 
+`getCost()` is not available for `Mobizon` provider.
+
 #### Get current balance
 
 To get the current balance on your account call `getBalance()` method:
@@ -113,6 +115,7 @@ const providers = {
     accessKeyId: '',
     secretAccessKey: '',
   }),
+  
   mobizon: new Mobizon({
     apiKey: '',
   }),
