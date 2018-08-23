@@ -26,7 +26,8 @@
   "license": "MIT",
   "dependencies": {
     "isomorphic-fetch": "^2.2.1",
-    "mongoose": "^5.0.4"
+    "mongoose": "^5.0.4",
+    "babel-runtime": "^6.26.0"
   },
   "optionalDependencies": {
     "aws-sdk": "^2.211.0"
