@@ -14,6 +14,7 @@ import type {
 type CredentialsT = {|
   url: string,
   login: string,
+  originator: string,
   password: string,
 |};
 
@@ -115,6 +116,7 @@ export default class PlayMobile implements ProviderI {
   // eslint-disable-next-line class-methods-use-this
   createParams(options: OptionsT): Object {
     const { mesId, phone, message } = options || {};
+    const { originator = '3700' } = this.credentials;
     return {
       messages: [
         {
@@ -122,7 +124,7 @@ export default class PlayMobile implements ProviderI {
           recipient: phone,
           sms: {
             ttl: '300',
-            originator: 'smsSender',
+            originator,
             content: {
               text: message,
             },
