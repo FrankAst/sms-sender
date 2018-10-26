@@ -46,7 +46,7 @@
     "eslint": "^5.0.0",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-config-prettier": "^2.6.0",
-    "eslint-plugin-flowtype": "^2.42.0",
+    "eslint-plugin-flowtype": "^3.0.0",
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-prettier": "^2.6.0",
     "fetch-mock": "^6.0.0",
