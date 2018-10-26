@@ -49,7 +49,7 @@
     "eslint-plugin-flowtype": "^2.42.0",
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-prettier": "^2.6.0",
-    "fetch-mock": "^6.0.0",
+    "fetch-mock": "^7.0.2",
     "flow-bin": "^0.70.0",
     "jest": "22.4.3",
     "mongodb-memory-server": "^1.6.5",
