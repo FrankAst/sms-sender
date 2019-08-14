@@ -55,7 +55,7 @@
     "mongodb-memory-server": "^1.6.5",
     "nodemon": "^1.15.1",
     "prettier": "^1.10.2",
-    "rimraf": "^2.6.2",
+    "rimraf": "^3.0.0",
     "semantic-release": "^15.0.3"
   },
   "publishConfig": {
